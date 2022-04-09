@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import QuestionsCard from "./components/QuestionsCard";
-const TOTAL_QUESTIONS = 0;
+import { fetchQuestions } from "./Api";
+
+const TOTAL_QUESTIONS = 10;
+
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
@@ -8,6 +11,7 @@ const App = () => {
   const [userAnswers, setUseranswers] = useState([]);
   const [score, setScore] = useState(0);
   const [gameOver, setgameOver] = useState(true);
+  console.log(fetchQuestions(TOTAL_QUESTIONS));
 
   const start = async () => {};
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
@@ -20,14 +24,14 @@ const App = () => {
       </button>
       <p className="score">Score:</p>
       <p>Loading Qusteions...</p>
-      <QuestionsCard
+      {/* <QuestionsCard
         questionNr={number + 1}
         totalQuestions={TOTAL_QUESTIONS}
         question={questions[number].question}
         answers={questions[number].answers}
         userAnswer={userAnswers ? userAnswers[number] : undefined}
         callback={checkAnswer}
-      />
+      /> */}
       <button className="next" onClick={nextquestion}>
         next
       </button>
